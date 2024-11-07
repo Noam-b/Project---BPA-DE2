@@ -1,3 +1,4 @@
+#this code setup the sensor to detect and return the distance between the captor and the first object
 import machine, time
 from machine import Pin
 
