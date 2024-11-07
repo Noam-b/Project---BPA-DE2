@@ -1,1 +1,30 @@
+# from datetime import datetime
+# current_time = datetime.now()
+# formatted_time = current_time.strftime("%H:%M")
+# print(formatted_time)
 
+import requests  # Network Request Module
+import json
+
+test_string = '{"Nikhil" : 1, "Akshat" : 2, "Akash" : 3}'
+
+
+print("Make the GET request")
+response = requests.get("https://timeapi.io/api/time/current/zone?timeZone=Europe/Prague")
+print(response.status_code)
+result = json.loads(response.text)
+print("le résultat mhhhhh", result)
+#print(response.text)
+
+
+hour = result.get("hour")
+minute = result.get("minute")
+
+
+# hour = response.text.get("hour")
+# minute = response.text.get("minute")
+print("Hour:", hour)
+print("Minute:", minute)
+
+# Close the response to free up resources
+response.close()
